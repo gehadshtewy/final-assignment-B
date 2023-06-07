@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { View, Text} from "react-native";
 import AppStyle from "../../components/AppStyle";
-const subCategory = () => {
+const subCategory = (props) => {
     return(
         <View style={AppStyle.container} >
             <Text>subCategory screen</Text>
