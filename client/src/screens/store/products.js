@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from "react";
 import { View, Text} from "react-native";
 import AppStyle from "../../components/AppStyle";
-const Store = (props) => {
+const Products = () => {
     return(
         <View style={AppStyle.container} >
-            <Text>Store screen</Text>
+            <Text>Products screen</Text>
         </View>
-    )//2:38
+    )
 }
   
 
-export default Store;
+export default Products;
