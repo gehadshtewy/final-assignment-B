@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import AppStyle from "../../components/AppStyle";
-const Products = (props) => {
+const MazdaProducts = (props) => {
     return(
         <View style={AppStyle.container} >
             <Text>Products screen</Text>
@@ -13,4 +13,4 @@ const Products = (props) => {
 }
   
 
-export default Products;
+export default MazdaProducts;

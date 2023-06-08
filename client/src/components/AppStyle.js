@@ -16,7 +16,13 @@ export default StyleSheet.create({
     },
     btn: {
         width:'100%',backgroundColor:AppColors.green, height:50,borderRadius:30,
-        alignItems:'center', justifyContent:'center'//2:44
+        alignItems:'center', justifyContent:'center',shadowColor:AppColors.black,
+        shadowOffset:{width:2, height:2},shadowOpacity:3.70,shadowRadius:6,
+        elevation:4,marginBottom:15
     },
-    btn_text: {},
+    btn_text: {
+        color:AppColors.white,
+        fontSize:18,
+        fontFamily: 'RobotoSlab-Medium'
+    },
 })
