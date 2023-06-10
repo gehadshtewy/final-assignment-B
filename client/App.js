@@ -39,7 +39,7 @@ export default function App() {
     <Provider theme={theme}>
       <SafeAreaView style={{flex:1}} onLayout={onLayoutRootView}>
        <NavigationContainer>
-        <TabsNavigator />
+         <TabsNavigator />
        </NavigationContainer>
      </SafeAreaView>
     </Provider>

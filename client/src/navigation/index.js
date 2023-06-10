@@ -9,11 +9,13 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Shopping from "../screens/shopping/shopping";
 import Favorites from "../screens/favorites/favorites";
 ///store screen
-import Store, {screenOptions as StoreScreenOption } from "../screens/store/store";
-import subCategory, {screenOptions as subCategoryScreenOption } from "../screens/store/subCategory";
+import Store from "../screens/store/store";
+import subCategory from "../screens/store/subCategory";
 import Products from "../screens/store/products";
 import ProductDetails from "../screens/store/productDetails";
 import MazdaProducts from "../screens/store/mazdaproducts";
+import AddProduct from "../screens/store/Addproduct";
+import AddCategory from "../screens/store/AddCategory.js";
 
 const defaultNavOption = {
     headerStyle: {backgroundColor:AppColors.black},
@@ -26,11 +28,13 @@ const StoreStackNavigator = createNativeStackNavigator();
 export const StoreStack = () => {
     return(
         <StoreStackNavigator.Navigator screenOptions={defaultNavOption}>
-            <StoreStackNavigator.Screen name='Category' component={Store} options={StoreScreenOption} />
-            <StoreStackNavigator.Screen name='subCategory' component={subCategory} options={subCategoryScreenOption} />
+            <StoreStackNavigator.Screen name='Category' component={Store} />
+            <StoreStackNavigator.Screen name='subCategory' component={subCategory} />
             <StoreStackNavigator.Screen name='Products' component={Products} />
             <StoreStackNavigator.Screen name='ProductDetails' component={ProductDetails} />
             <StoreStackNavigator.Screen name='MazdaProducts' component={MazdaProducts} />
+            <StoreStackNavigator.Screen name='AddProduct' component={AddProduct} />
+            <StoreStackNavigator.Screen name='AddCategory' component={AddCategory} />
         </StoreStackNavigator.Navigator>
     )
 }

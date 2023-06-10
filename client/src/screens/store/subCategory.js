@@ -1,27 +1,23 @@
 import React, {useState, useEffect} from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity,Image } from "react-native";
 import AppStyle from "../../components/AppStyle";
-const subCategory = (props) => {
+const SubCategory = (props) => {
     return(
         <View style={AppStyle.container} >
-            <Text style={AppStyle.title}>{props.route.params.car}</Text>
+            
+            
+                <TouchableOpacity style={[AppStyle.btn,{width:200,height:200}]} onPress={() => {props.navigation.navigate('Products')}}>
+                    <Text style={AppStyle.btn_text}>GO TO CARS PRODUCT</Text>
+                </TouchableOpacity>
 
-            <TouchableOpacity style={AppStyle.btn} onPress={() => {props.navigation.navigate('Products')}}>
-                <Text style={AppStyle.btn_text}>GO TO TOYOTA Products</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={AppStyle.btn} onPress={() => {props.navigation.navigate('MazdaProducts')}}>
-                <Text style={AppStyle.btn_text}>GO TO MAZDA Products</Text>
-            </TouchableOpacity>
         </View>
     )
 }
-
+/*
 export const screenOptions = (navData) => {
     return {
         headerTitle: navData.route.params.car
     }
-}
+}*/
   
-
-export default subCategory;
+export default SubCategory;
