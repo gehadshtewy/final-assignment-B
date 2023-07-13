@@ -12,8 +12,9 @@ const AddProduct = (props) => {
     const [productImage,setProductImage] = useState();
     const [discription,setDiscription] = useState();
 
-    const AddProductInStore = async () => {
-        const api = "http://10.0.0.15:3002/api/products/add_new_product";
+    const AddProductInStore = async () => {  
+        //const api = "http://10.0.0.15:3002/api/products/add_new_product";
+        const api = "http://10.70.0.61:3002/api/products/add_new_product";
         try {
             const user = {
                 productName:productName,

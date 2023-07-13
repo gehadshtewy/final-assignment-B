@@ -15,9 +15,7 @@ const ProductList = (props,{onPress}) => {
             <View>
               <Text style={AppStyle.product_name}>{props.data1.productName}</Text>
               <Text style={AppStyle.pricety}>Price:{props.data1.productPrice}</Text>
-              <TouchableOpacity style={[AppStyle.btn,{width:100,borderRadius:25,marginTop:20}]} onPress={() => {props.navigation.navigat('ProductDetails')}}>
-                <Text style={AppStyle.btn_text}>view</Text>
-            </TouchableOpacity>
+              
             </View>
            </TouchableOpacity>
 

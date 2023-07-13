@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import AppStyle from "../../components/AppStyle";
 import axios from 'axios';
+import AppColors from "../../components/AppColors";
 
 
 const AddCategory = (props) => {
@@ -9,8 +10,9 @@ const AddCategory = (props) => {
     const [categoryName,setCategoryName]= useState("");
     const [categoryLogo,setCategoryLogo] = useState("");
 
-    const AddCategoryInStore = async () => {
-        const api = "http://10.0.0.15:3002/api/products/add_new_category";
+    const AddCategoryInStore = async () => {  
+        //const api = "http://10.0.0.15:3002/api/products/add_new_category";
+        const api = "http://10.70.0.61:3002/api/products/add_new_category";
         try {
             const userc = {
                 categoryName: categoryName,
@@ -32,7 +34,7 @@ const AddCategory = (props) => {
 
     return(
         <View style={AppStyle.container} >
-            <Text>AddCategory screen</Text>
+            <Text style={{fontSize:30,marginBottom:30,color:AppColors.green_90}}>Add Category</Text>
 
             <TextInput 
               style={AppStyle.input}

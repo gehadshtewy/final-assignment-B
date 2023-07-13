@@ -8,53 +8,46 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 
 const Products = (props) => {
-   
+    console.log(props.route.params._id);
     const [productArray,setProductArray] = useState([]);
-   
-     function renderProduct({item:product}){
-        return(
-            <ProductList
-              {...product}
-              onPress={() => {
-                 props.navigation.navigate('ProductDetails',{productId:product.id})
-              }}
-            />
-        )
-     }
-    
     
     useEffect(() => {
-        getAllProducts();
+        //getAllProducts();
+        getAllProductIncategoryId();
     },[]);
 
-    const getAllProducts =async () => {
-        const api = "http://10.0.0.15:3002/api/products/get_all_product";
+    const getAllProductIncategoryId =async () => {   
+        //const api = `http://10.0.0.15:3002/api/products//get_product_by_id2/${props.route.params._id}`;
+        const api = `http://10.70.0.61:3002/api/products//get_product_by_id2/${props.route.params._id}`;
         try {
             const response = await axios.get(api);
             setProductArray(response.data.message);
-        } 
-        catch (error) {
-           console.log(error.message); 
+        } catch (error) {
+            
         }
     }
-   //console.log(productArray);
+    
    const data1 = productArray;
-    console.log(props.data);
+    console.log(data1);
     return(
-        <View style={AppStyle.container}>
+        <View style={[AppStyle.containerp,{alignItems:'center',justifyContent:'center'}]}>
             <Text style={AppStyle.title}></Text>
             <FlatList 
                 data={data1}
                 keyExtractor={item => item.id}
-                renderItem={itemRow => <ProductList data1={itemRow.item} />}
-               
+                renderItem={itemRow => 
+                    <TouchableOpacity style={AppStyle.cart} onPress={e=>{props.navigation.navigate('ProductDetails',itemRow.item)}}>
+                    <Image style={AppStyle.image} source={{uri:itemRow.item.productImage}} />
+                    <View>
+                    <Text style={AppStyle.product_name}>{itemRow.item.productName}</Text>
+                    <Text style={AppStyle.pricety}>Price:{itemRow.item.productPrice} ₪</Text>
+                    </View>
+                    </TouchableOpacity>  
+                    }  
            />
-            {/*<TouchableOpacity style={AppStyle.btn} onPress={() => {props.navigation.navigate('ProductDetails')}}>
-                <Text style={AppStyle.btn_text}>GO TO ProductDetails</Text>
-            </TouchableOpacity>*/}
 
-            <TouchableOpacity style={[AppStyle.btn,{width:100,borderRadius:25,marginTop:20}]} onPress={() => {props.navigation.navigate('AddProduct')}}>
-                <Text style={AppStyle.btn_text}>Add<MaterialCommunityIcons name="plus-circle-outline" color={AppColors.white} size={28} /></Text>
+            <TouchableOpacity style={[AppStyle.btn,{width:50,borderRadius:25,marginTop:20}]} onPress={() => {props.navigation.navigate('AddProduct')}}>
+                <Text style={AppStyle.btn_text}><MaterialCommunityIcons name="plus-thick" color={AppColors.white} size={28} /></Text>
             </TouchableOpacity>
         </View>
     )

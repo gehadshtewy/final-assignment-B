@@ -6,14 +6,15 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 /////
+///Shopping Screen
 import Shopping from "../screens/shopping/shopping";
+//favorite screen
 import Favorites from "../screens/favorites/favorites";
+import ProductDetailsInFavorite from "../screens/favorites/productDetailsinfavorite";
 ///store screen
 import Store from "../screens/store/store";
-import subCategory from "../screens/store/subCategory";
 import Products from "../screens/store/products";
-import ProductDetails from "../screens/store/productDetails";
-import MazdaProducts from "../screens/store/mazdaproducts";
+import ProductDetails from "../screens/store/productDetails.js";
 import AddProduct from "../screens/store/Addproduct";
 import AddCategory from "../screens/store/AddCategory.js";
 
@@ -29,13 +30,21 @@ export const StoreStack = () => {
     return(
         <StoreStackNavigator.Navigator screenOptions={defaultNavOption}>
             <StoreStackNavigator.Screen name='Category' component={Store} />
-            <StoreStackNavigator.Screen name='subCategory' component={subCategory} />
             <StoreStackNavigator.Screen name='Products' component={Products} />
             <StoreStackNavigator.Screen name='ProductDetails' component={ProductDetails} />
-            <StoreStackNavigator.Screen name='MazdaProducts' component={MazdaProducts} />
             <StoreStackNavigator.Screen name='AddProduct' component={AddProduct} />
             <StoreStackNavigator.Screen name='AddCategory' component={AddCategory} />
         </StoreStackNavigator.Navigator>
+    )
+}
+ 
+const FavoriteStackNavigator = createNativeStackNavigator();
+export const FavoriteStack = () => {
+    return(
+        <FavoriteStackNavigator.Navigator screenOptions={defaultNavOption}>
+           <FavoriteStackNavigator.Screen name='Favorites' component={Favorites} />
+           <FavoriteStackNavigator.Screen name='ProductDetails' component={ProductDetailsInFavorite} />
+        </FavoriteStackNavigator.Navigator>
     )
 }
 
